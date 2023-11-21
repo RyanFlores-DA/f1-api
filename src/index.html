@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+    <title>Telemetria</title>
+</head>
+
+<body>
+    <div class="header">
+        <img class="full-car" src="assets/f1.avif" alt="" srcset="">
+        <p id="velocidade" class="text gear">0</p>
+    </div>
+
+    <div class="tyres">
+        <img width="64px" height="64px" src="assets/red-tire.webp" alt="tyres">
+        <div class="rpm-counter">
+            <h4 class="text rpm">
+                99999
+            </h4>
+            <h4 class="text str-rpm">
+                rpm
+            </h4>
+        </div>
+        <div class="tm-lap-counter">
+            <h4 class="text">
+                Time Lap
+            </h4>
+            <h5 class="text str-tm-lap">
+                00:00:00
+            </h5>
+            <h5 class="text">
+                Last Lap
+            </h5>
+            <h5 class="text str-last-lap">
+                00:00:00
+            </h5>
+        </div>
+    </div>
+    <script>
+        const ws = new WebSocket("ws://192.168.1.114:2002");
+
+        ws.addEventListener("open", () => {
+            console.log("Conexão WebSocket aberta.");
+
+            ws.addEventListener("message", event => {
+                const data = JSON.parse(event.data);
+                const velocidadeDoPrimeiroCarro = data.telemetry;
+
+                document.getElementById("velocidade").textContent = `${velocidadeDoPrimeiroCarro}`;
+            });
+        });
+
+        ws.addEventListener("error", error => {
+            console.error("Erro na conexão WebSocket:", error);
+        });
+    </script>
+</body>
+
+</html>

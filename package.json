@@ -1,0 +1,15 @@
+{
+  "name": "f1-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "f1-22-udp": "^2.1.1",
+    "ws": "^8.14.2"
+  }
+}

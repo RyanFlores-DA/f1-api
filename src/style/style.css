@@ -1,0 +1,34 @@
+.full-car{
+    width: 130px;
+    height: 80px;
+}
+body{
+    text-align: center;
+    background-color: #0A0E18;
+}
+.gear{
+    margin: 0% 0%;
+    font-size: 8em;
+}
+.rpm-counter{
+    margin-left: 0.5%;
+}
+.tm-lap-counter{
+    margin-top: -3.2em;
+    /* background-color: #ffffff; */
+}
+.rpm-counter, .tm-lap-counter{
+    padding-top: 0%;
+}
+.str-rpm, .str-tm-lap, .str-last-lap{
+    margin-top: -20px;
+    text-decoration: aliceblue;
+}
+.text{
+    color: azure;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+.tyres{
+    display: flex;
+    justify-content: space-between;
+}
