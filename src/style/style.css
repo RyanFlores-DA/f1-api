@@ -12,6 +12,7 @@ body{
 }
 .rpm-counter{
     margin-left: 0.5%;
+    /* font-size: 30px; */
 }
 .tm-lap-counter{
     margin-top: -3.2em;

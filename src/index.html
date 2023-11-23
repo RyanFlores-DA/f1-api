@@ -21,7 +21,7 @@
     <div class="tyres">
         <img width="64px" height="64px" src="assets/red-tire.webp" alt="tyres">
         <div class="rpm-counter">
-            <h4 class="text rpm">
+            <h4 id="rpm" class="text rpm">
                 99999
             </h4>
             <h4 class="text str-rpm">
@@ -32,7 +32,7 @@
             <h4 class="text">
                 Time Lap
             </h4>
-            <h5 class="text str-tm-lap">
+            <h5 id="lapTime" class="text str-tm-lap">
                 00:00:00
             </h5>
             <h5 class="text">
@@ -51,9 +51,14 @@
 
             ws.addEventListener("message", event => {
                 const data = JSON.parse(event.data);
-                const velocidadeDoPrimeiroCarro = data.telemetry;
+                const gear = data.gear;
+                const rpm = data.rpm;
+                const lapTime = data.lapTime;
+                console.log(data);
 
-                document.getElementById("velocidade").textContent = `${velocidadeDoPrimeiroCarro}`;
+                document.getElementById("velocidade").textContent = `${gear}`;
+                document.getElementById("rpm").textContent = `${rpm}`;
+                document.getElementById("lapTime").textContent = `${lapTime}`;
             });
         });
 
