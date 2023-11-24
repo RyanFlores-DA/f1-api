@@ -54,11 +54,11 @@
                 const gear = data.gear;
                 const rpm = data.rpm;
                 const lapTime = data.lapTime;
-                console.log(data);
+                const fullLapTime = `${lapTime.minutos}:${lapTime.segundos}.${lapTime.milissegundos}`
 
                 document.getElementById("velocidade").textContent = `${gear}`;
                 document.getElementById("rpm").textContent = `${rpm}`;
-                document.getElementById("lapTime").textContent = `${lapTime}`;
+                document.getElementById("lapTime").textContent = `${fullLapTime}`;
             });
         });
 

@@ -2,19 +2,25 @@ const CarroService = require("../service/CarroService");
 
 module.exports = class Carro {
     // constructor(lapTime) {
-    //     this.lapTime = lapTime;
-    // }
+        //     this.lapTime = lapTime;
+        // }
     constructor(){
+        this.carro = new CarroService();
+    }
 
+    setGear(gear){
+        this.gear = this.carro.gearRegress(gear);
+    }
+
+    getGear(){
+        return this.gear;
     }
 
     setLapTime(lapTime){
-        this.lapTime = lapTime;
+        this.lapTime = this.carro.convertMilesToHour(lapTime);
     }
 
     getLapTime(){
-        const carro = new CarroService();
-        carro.convertMilesToHour();
-        return  carro.convertMilesToHour(this.lapTime);
+        return  this.lapTime;
     }
 }
