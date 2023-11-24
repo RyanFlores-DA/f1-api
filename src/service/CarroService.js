@@ -19,13 +19,10 @@ module.exports = class CarroService {
 
     gearRegress(gear){
         if (gear == '-1') {
-            // console.log(gear.toString());
             return 'R'; 
         } else if (gear == '0') {
-            // console.log(gear.toString());
             return 'N'; 
         } else {
-            // console.log(gear.toString());
             return gear.toString();
         }
     }
